@@ -1,0 +1,11 @@
+{% extends "app2/base.html" %}
+{% block body %}
+    <div class="row">
+        <p class="h4">Write a Review</p>
+        <form action="{% url 'reviews' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-outline-dark" type="submit" value="Log-in">Submit</button>
+        </form>
+    </div>
+{% endblock body %}
