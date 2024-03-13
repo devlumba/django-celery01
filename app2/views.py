@@ -12,3 +12,6 @@ class ReviewEmailView(FormView):
         form.send_email()
         msg = "Thanks for the review"
         return HttpResponse(msg)
+
+# I can use "template_name" without "app_name/" in path...
+# if in app_name directory folder "templates" has no additional app_name dir
