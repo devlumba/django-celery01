@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app1',
     'app2',
+    'app3',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +137,16 @@ with open("proj/email.json") as f:
     conf = json.load(f)
     EMAIL_HOST_USER = conf["EMAIL_HOST_USER"]
     EMAIL_HOST_PASSWORD = conf["EMAIL_HOST_PASSWORD"]
+
+CELERY_BEAT_SCHEDULE = {
+    "scheduled_task": {
+        "task": "app1.tasks.add",
+        "schedule": 10.0,
+        "args": (10, 20),
+    },
+    "database": {
+        "task": "app3.tasks.bkup",
+        "schedule": 20.0,
+
+    }
+}

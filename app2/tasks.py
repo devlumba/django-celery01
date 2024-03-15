@@ -33,3 +33,4 @@ def send_review_email_task(name, email, review_content):
                          settings.DEFAULT_FROM_EMAIL, [email, ])
     logger.info("Sent review email")
     return email.send(fail_silently=False)
+
